@@ -1,6 +1,6 @@
 import {FileReader} from "../utils/FileReader";
 
-const FILE_PATH = './input.txt';
+const FILE_PATH = '05/input.txt';
 
 type Range = {
     destinationStart: number;
@@ -140,7 +140,7 @@ const getDestinationForSource = (source: number, step: Step) => {
         return source;
     }
 
-    const destinationRange = possibleRanges
+    const destinationRange = [...possibleRanges]
         .sort((a, b) => a.destinationStart - b.destinationStart)[0];
     return destinationRange.destinationStart + source - destinationRange.sourceStart;
 }
@@ -196,7 +196,7 @@ const runPart1 = () => {
     const lines = FileReader.getLines(FILE_PATH);
     const almanac = AlmanacMapper.fromLines(lines);
     const processedSeeds = processAlmanacSeeds(almanac.seeds, almanac.steps);
-    const lowest = processedSeeds.sort((a, b) => a - b)[0];
+    const lowest = [...processedSeeds].sort((a, b) => a - b)[0];
 
     console.log(`PART 1 RESULT: ${lowest}`);
 }
@@ -205,7 +205,7 @@ const runPart2 = () => {
     const lines = FileReader.getLines(FILE_PATH);
     const almanac = AlmanacMapper.fromLines(lines, { seedRanges: true });
     const processedSeeds = processAlmanacSeedRanges(almanac.seedsRanges, almanac.steps);
-    const lowest = processedSeeds.sort((a, b) => a.from - b.from)[0];
+    const lowest = [...processedSeeds].sort((a, b) => a.from - b.from)[0];
 
     console.log(`PART 2 RESULT: ${lowest.from}`);
 }

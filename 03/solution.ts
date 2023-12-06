@@ -1,6 +1,6 @@
 import {FileReader} from "../utils/FileReader";
 
-const FILE_PATH = "./input.txt";
+const FILE_PATH = "03/input.txt";
 
 type Coordinate = { x: number, y: number };
 
@@ -86,7 +86,7 @@ const runPart1 = () => {
     let sum = 0;
 
     lines.forEach((line: string, lineIndex: number) => {
-       let start = null, end = null, char = null;
+       let start, end, char;
 
        for (let i = 0; i <= line.length; i++) {
            char = line.charAt(i);
@@ -158,7 +158,7 @@ const runPart2 = () => {
 
     coordinates.forEach((coordinate) => {
         lines.forEach((line: string, lineIndex: number) => {
-            let start = null, end = null, char = null;
+            let start, end, char;
 
             for (let i = 0; i <= line.length; i++) {
                 char = line.charAt(i);

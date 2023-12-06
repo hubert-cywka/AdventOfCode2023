@@ -1,6 +1,6 @@
 import {FileReader} from "../utils/FileReader";
 
-const FILE_PATH = './input.txt';
+const FILE_PATH = '04/input.txt';
 
 class ScratchCard {
     private own: number[];

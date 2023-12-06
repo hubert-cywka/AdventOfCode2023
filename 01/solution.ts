@@ -1,8 +1,6 @@
 import {FileReader} from "../utils/FileReader";
 
-const fs = require("fs");
-
-const FILE_PATH = "./input1.txt";
+const FILE_PATH = "01/input.txt";
 
 const dictionary = {
     "one": 1,
@@ -16,12 +14,12 @@ const dictionary = {
     "nine": 9,
 };
 
-const isSubstringOfNumber = (maybeSubstring) => {
+const isSubstringOfNumber = (maybeSubstring: string) => {
     const numbers = Object.keys(dictionary);
     return numbers.some((number) => number.startsWith(maybeSubstring));
 }
 
-const findSubstringOfNumber = (word) => {
+const findSubstringOfNumber = (word: string) => {
     let newWord = word;
 
     while (newWord.length > 0) {
@@ -35,7 +33,7 @@ const findSubstringOfNumber = (word) => {
     return "";
 }
 
-const getLineResult = (line) => {
+const getLineResult = (line: string) => {
     let first = -1, last = -1;
     let word = "";
 
